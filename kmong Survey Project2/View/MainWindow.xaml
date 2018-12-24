@@ -1,0 +1,44 @@
+﻿<mah:MetroWindow
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    x:Class="kmong_Survey_Project2.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:kmong_Survey_Project2.View"
+        xmlns:vm="clr-namespace:kmong_Survey_Project2.ViewModel"
+        xmlns:view="clr-namespace:kmong_Survey_Project2.View"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        WindowState="Maximized" >
+    <mah:MetroWindow.DataContext>
+        <vm:MainWindowViewModel/>
+    </mah:MetroWindow.DataContext>
+
+    <mah:MetroWindow.Resources>
+        <DataTemplate DataType="{x:Type vm:SurvetEntryViewModel}"> <view:SurveyEntryPage/> </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:대근육ViewModel}"> <view:대근육/> </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:소근육ViewModel}"> <view:소근육/> </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:사회성ViewModel}"> <view:사회성/> </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:언어ViewModel}"> <view:언어/> </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:인지ViewModel}"> <view:인지/> </DataTemplate>
+    </mah:MetroWindow.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Frame x:Name="myframe" 
+           Padding="30 ,30 ,30 ,30" 
+           NavigationUIVisibility="Hidden"
+           Content="{Binding CurrentViewModel}" >
+        </Frame>
+        <StackPanel Grid.Row="1">
+            <Button Command="{Binding goNextCommand}" Content="다음페이지로"></Button>
+            <Button Command="{Binding goBackCommand}" Content="이전페이지로"></Button>
+        </StackPanel>
+
+    </Grid>
+</mah:MetroWindow>

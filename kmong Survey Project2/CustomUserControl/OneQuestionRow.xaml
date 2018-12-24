@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="kmong_Survey_Project2.CustomUserControl.OneQuestionRow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:customstackpanel="clr-namespace:kmong_Survey_Project2.CustomStackPanel"
+             xmlns:local="clr-namespace:kmong_Survey_Project2.CustomUserControl"
+             mc:Ignorable="d" 
+             Background="White"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+            <Border Style="{StaticResource DownUpLeftBorder}" Grid.Column="0">
+                <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:OneQuestionRow}}, Path=ContentNumber}" Style="{StaticResource CenterTextBlock}"/>
+            </Border>
+            <Border Style="{StaticResource DownUpLeftBorder}" Grid.Column="1">
+                <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:OneQuestionRow}}, Path=ContentValue}"
+                           Style="{StaticResource CenterTextBlock}"
+                           TextWrapping="Wrap"
+                           ></TextBlock>
+            </Border>
+            <Border Style="{StaticResource FourBorder}" Grid.Column="2">
+            <customstackpanel:UserStackPanel
+                        VerticalAlignment="Center"
+                        RadioButtonContentSet="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:OneQuestionRow}}, Path=RadioButtonContentSets}"
+                        RadioButtonNumber="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:OneQuestionRow}}, Path=RadioButtonNum}"
+                        RadioButtonTargetBindingName="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:OneQuestionRow}}, Path=RadioButtonTargetBindingName}"
+                        >
+                </customstackpanel:UserStackPanel>
+            </Border>
+    </Grid>
+</UserControl>

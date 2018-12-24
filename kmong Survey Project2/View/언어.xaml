@@ -1,0 +1,106 @@
+﻿<Page x:Class="kmong_Survey_Project2.View.언어"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:kmong_Survey_Project2.View"
+      xmlns:customusercontrol="clr-namespace:kmong_Survey_Project2.CustomUserControl"
+      xmlns:viewmodel="clr-namespace:kmong_Survey_Project2.ViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="언어">
+    <Page.DataContext>
+        <viewmodel:언어ViewModel/>
+    </Page.DataContext>
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Margin="20, 20">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <customusercontrol:OneQuestionRow 
+                                            ContentNumber="1"
+                                            ContentValue="등을 대고 누운 자세에서 두 손을 가슴 부분에 모은다."
+                                            RadioButtonNum="5"
+                                            RadioButtonTargetBindingName="언어[0]"
+                                            RadioButtonContentSets="잘한다,잘 못한다,대충 한다,진짜 잘한다,엄청 못한다"
+                                            Grid.Row="0"></customusercontrol:OneQuestionRow>
+            <customusercontrol:OneQuestionRow 
+                                            ContentNumber="2"
+                                            ContentValue="손에 딸랑이를 쥐여 주면 잠시 쥐고 있다."
+                                            RadioButtonNum="5"
+                                            RadioButtonTargetBindingName="언어[1]"
+                                            RadioButtonContentSets="잘한다,잘 못한다,대충 한다,진짜 잘한다,엄청 못한다"
+                                            Grid.Row="1"></customusercontrol:OneQuestionRow>
+            <customusercontrol:OneQuestionRow 
+                                            ContentNumber="3"
+                                            ContentValue="앉은 자세로 안겨있을 때 양손을 모아 쥐거나 손가락을 만진다."
+                                            RadioButtonNum="5"
+                                            RadioButtonTargetBindingName="언어[2]"
+                                            RadioButtonContentSets="잘한다,잘 못한다,대충 한다,진짜 잘한다,엄청 못한다"
+                                            Grid.Row="2"></customusercontrol:OneQuestionRow>
+            <customusercontrol:OneQuestionRow
+                                            ContentNumber="4"
+                                            ContentValue="손에 쥐고 있는 딸랑이를 자기 입으로 가져 간다."
+                                            RadioButtonNum="5"
+                                            RadioButtonTargetBindingName="언어[3]"
+                                            RadioButtonContentSets="잘한다,잘 못한다,대충 한다,진짜 잘한다,엄청 못한다"
+                                            Grid.Row="3"></customusercontrol:OneQuestionRow>
+
+            <customusercontrol:OneQuestionRow
+                                            ContentNumber="5"
+                                            ContentValue="엎드린 자세에서 뒤집는다"
+                                            RadioButtonNum="5"
+                                            RadioButtonTargetBindingName="언어[4]"
+                                            RadioButtonContentSets="잘한다,잘 못한다,대충 한다,진짜 잘한다,엄청 못한다"
+                                            Grid.Column="1"
+                                            Grid.Row="0"></customusercontrol:OneQuestionRow>
+            <customusercontrol:OneQuestionRow  
+                                            ContentNumber="6"
+                                            ContentValue="등을 대고 누운 자세에서 엎드린 자세로 뒤 집는다(팔이 몸통에 깔려 있지 않아야 한다)"
+                                            RadioButtonNum="5"
+                                            RadioButtonTargetBindingName="언어[5]"
+                                            RadioButtonContentSets="잘한다,잘 못한다,대충 한다,진짜 잘한다,엄청 못한다"
+
+                                            Grid.Column="1"
+                                            Grid.Row="1"></customusercontrol:OneQuestionRow>
+            <customusercontrol:OneQuestionRow  
+                                            ContentNumber="7"
+                                            ContentValue="누워 있을 때 자기 발을 잡고 논다"
+                                            RadioButtonNum="5"
+                                            RadioButtonTargetBindingName="언어[6]"
+                                            RadioButtonContentSets="잘한다,잘 못한다,대충 한다,진짜 잘한다,엄청 못한다"
+                                            Grid.Column="1"
+                                            Grid.Row="2"></customusercontrol:OneQuestionRow>
+            <customusercontrol:OneQuestionRow 
+                                            ContentNumber="8"
+                                            ContentValue="앉혀주면 양손을 짚고 30초 이상 혼자 버티고 앉아 있다."
+                                            RadioButtonNum="5"
+                                            RadioButtonTargetBindingName="언어[7]"
+                                            RadioButtonContentSets="잘한다,잘 못한다,대충 한다,진짜 잘한다,엄청 못한다"
+                                            Grid.Column="1"
+                                            Grid.Row="3"></customusercontrol:OneQuestionRow>
+        </Grid>
+        <StackPanel Grid.Row="1">
+            <ListView ItemsSource="{Binding 언어}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>

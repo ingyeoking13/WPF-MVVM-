@@ -1,0 +1,133 @@
+﻿<Page xmlns:CustomStackPanel="clr-namespace:kmong_Survey_Project2.CustomStackPanel" 
+      x:Class="kmong_Survey_Project2.View.SurveyEntryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:kmong_Survey_Project2.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1800"
+      Background="White"
+      Title="SurveyEntryPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+        한국 영유아 발달선별 검사 (4~5 개월용) 
+        </TextBlock>
+        <Grid Grid.Row="1" Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.ColumnSpan="5" VerticalAlignment="Center" Style="{StaticResource TextBlock}">
+            * 다음 사항을 기재해 주십시오. 빈칸에 작성하시고 해당사항에 체크 표시 하십시오.
+            </TextBlock>
+
+            <Border Style="{StaticResource UpLeftBorder}" Grid.Row="1">
+                <TextBlock Text="아이 이름"  Style="{StaticResource CenterTextBlock}"/>
+            </Border>
+
+            <Border Style="{StaticResource UpLeftBorder}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                <TextBox></TextBox>
+            </Border>
+
+            <Border Style="{StaticResource UpLeftBorder}" Grid.Row="1" Grid.Column="3">
+                <TextBlock Style="{StaticResource CenterTextBlock}" Text="설문 응답자"/>
+            </Border>
+
+            <Border Style="{StaticResource RightUpLeftBorder}" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2">
+                <CustomStackPanel:UserStackPanel VerticalAlignment="Center"
+                                                 RadioButtonNumber="5" 
+                                                 RadioButtonContentSet="어머니, 아버지, 할아버지, 할머니, 기타"
+                                                 RadioButtonTargetBindingName="동행자" />
+            </Border>
+
+            <Border Style="{StaticResource UpLeftBorder}" Grid.Row="2">
+                <TextBlock Style="{StaticResource CenterTextBlock}" Text="생년 월일"/>
+
+            </Border>
+
+            <Border Style="{StaticResource RightUpLeftBorder}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5">
+                <TextBlock >
+                </TextBlock>
+            </Border>
+            
+            <Border Style="{StaticResource UpLeftBorder}" Grid.Row="3" Grid.RowSpan="2">
+                <TextBlock Style="{StaticResource CenterTextBlock}">
+                부모정보<LineBreak/>(선택사항)
+                </TextBlock>
+            </Border>
+
+            <Border Style="{StaticResource UpLeftBorder}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1">
+                <TextBlock Text="어머니 나이" Style="{StaticResource CenterTextBlock}">
+                </TextBlock>
+            </Border>
+
+            <Border Style="{StaticResource UpLeftBorder}" Grid.Row="3" Grid.Column="2">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Width="100"/>
+                    <TextBlock Text="세" Style="{StaticResource CenterTextBlock}"></TextBlock>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource UpLeftBorder}" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3">
+                <TextBlock >
+                </TextBlock>
+            </Border>
+
+            <Border Style="{StaticResource UpLeftBorder}" Grid.Row="4" Grid.Column="1">
+                <TextBlock Text="아버지 나이" Style="{StaticResource CenterTextBlock}"/>
+            </Border>
+
+            <Border Style="{StaticResource UpLeftBorder}" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Width="100"></TextBox>
+                    <TextBlock Text="세" Style="{StaticResource CenterTextBlock}"/>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource RightUpLeftBorder}" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="3">
+                <TextBlock >
+                </TextBlock>
+            </Border>
+
+            <Border Style="{StaticResource DownUpLeftBorder}" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3">
+                <TextBlock Text="아이가 신체나 기타 발달상의 문제가 있나요?" Style="{StaticResource CenterTextBlock}">
+                </TextBlock>
+            </Border>
+            <Border Style="{StaticResource FourBorder}" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3">
+                <CustomStackPanel:UserStackPanel 
+                                                RadioButtonContentSet="아니오, 예"
+                                                 RadioButtonNumber="2"
+                                                 RadioButtonTargetBindingName="발달상문제">
+                </CustomStackPanel:UserStackPanel>
+            </Border>
+        </Grid>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding 동행자}"></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding 발달상문제}"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

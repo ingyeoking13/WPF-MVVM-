@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace kmong_Survey_Project2
+namespace kmong_Survey_Project2.View
 {
     /// <summary>
-    /// MainWindow.xaml에 대한 상호 작용 논리
+    /// 언어.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class 언어 : Page
     {
-        public MainWindow()
+        public 언어()
         {
             InitializeComponent();
         }
